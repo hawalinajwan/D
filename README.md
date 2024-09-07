@@ -3,7 +3,6 @@
 ### Requirements
 - NodeJS v16.x or Docker
 - Postgres Database, Discord Webhook URLs
-- Avg technical knowledge
 
 ## Setup Guide
 1. Clone this project
@@ -15,7 +14,6 @@
 6. Run - `npm run migration:up`
 7. Run - `node bin/ddrive`
 8. Navigate to `http://localhost:3000` in your browser.
-
 
 # Required params
 DATABASE_URL= # Database URL of postgres with valid postgres uri
@@ -50,35 +48,5 @@ docker run -rm -it -p 8080:8080 \
 --name ddrive forscht/ddrive
 ```
 
-const DFsConfig = {
-  chunkSize: 25165824,
-  webhooks: 'webhookURL1,webhookURL2',
-  secret: 'somerandomsecret',
-  maxConcurrency: 3, // UPLOAD_CONCURRENCY
-  restOpts: {
-    timeout: '60000',
-  },
-}
-
-const httpConfig = {
-  authOpts: {
-    auth: { user: 'admin', pass: 'admin' },
-    publicAccess: 'READ_ONLY_FILE', // or 'READ_ONLY_PANEL'
-  },
-  port: 8080,
-}
-
-const run = async () => {
-  // Create DFs Instance
-  const dfs = new DFs(DFsConfig)
-  // Create HTTP Server instance
-  const httpServer = HttpServer(dfs, httpConfig)
-
-  return httpServer.listen({ host: '0.0.0.0', port: httpConfig.port })
-}
-
-run().then()
-
-```
 
 
