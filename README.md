@@ -20,7 +20,6 @@ DATABASE_URL= # Database URL of postgres with valid postgres uri
 
 WEBHOOKS={url1},{url2} # Webhook urls seperated by ","
 
-# Optional params
 PORT=3000 # HTTP Port where ddrive panel will start running
 
 REQUEST_TIMEOUT=60000 # Time in ms after which ddrive will abort request to discord api server. Set it high if you have very slow internet
@@ -37,16 +36,6 @@ PUBLIC_ACCESS=READ_ONLY_FILE # If you want to give read only access to panel or 
 
 UPLOAD_CONCURRENCY=3 # ddrive will upload this many chunks in parallel to discord. If you have fast internet increasing it will significantly increase performance at cost of cpu/disk usage                                              
 
-```
-
-### Run using docker
-```shell
-docker run -rm -it -p 8080:8080 \
--e PORT=8080 \
--e WEBHOOKS={url1},{url2} \
--e DATABASE_URL={database url} \
---name ddrive forscht/ddrive
-```
 
 
 
